@@ -29,7 +29,7 @@ toR = function(data, changes, params, ...) {
   rClass = params$rClass
   colHeaders = unlist(params$rColHeaders)
   rowHeaders = unlist(params$rRowHeaders)
-  rColClasses = unlist(params$rColClasses)[colHeaders]
+  rColClasses = unlist(lapply(params$rColClasses, function(x) x[[1]]))[colHeaders] # need to take first element to handle sparkline
 
   out = data
 
